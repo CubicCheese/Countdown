@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="Standard.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script>
+	var targetTime = new Date("June 30, 2016 14:45:00").getTime();
+	function main() {
+	setTimeout(function time(){
+			currentTime = new Date().getTime();
+			elapsedMsec = targetTime - currentTime
+			elapsedDays = Math.floor(elapsedMsec/1000/60/60/24);
+			elapsedHrs = Math.floor([elapsedMsec/1000/60/60] % 24);
+			elapsedMins = Math.floor([elapsedMsec/1000/60] % 60);
+			elapsedSecs = Math.floor([elapsedMsec/1000] % 60);
+			$("#main").text(elapsedDays +" days " +elapsedHrs +" hours " +elapsedMins +" minutes " +elapsedSecs +" seconds");
+			main();
+			},1000);
+	}
+	</script>
+	</head>
+	<body onload="main()">
+		<center>
+		<img src="T-Minus.png">
+		<br><br><br><br><br>
+		<h1 id="main"></h1>
+		</center>
+	</body>
+</html>
